@@ -1,8 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const router = (0, express_1.Router)();
+const {Router, Request, Response} = require ('express');
+
+const router = Router();
+
 router.get('/', (req, res) => {
     res.send('Ty Bird');
-});
-exports.default = router;
+})
+
+module.exports = router;
