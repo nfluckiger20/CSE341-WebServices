@@ -114,4 +114,29 @@ async function put(client, body, id) {
     return contacts;
 }
 
-module.exports = {findContacts, findContact, postContacts, putContacts}
+const deleteContacts = async (req, res) => {
+    const id = new ObjectId(req.params.id) 
+    const url = process.env.MONGODB; 
+    const client = new MongoClient(url);
+
+    try {
+        await client.connect();
+        const contacts = await remove(client, id);
+        res.json(contacts);
+
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Internal Server Error' });
+
+    } finally {
+        await client.close();
+    }
+};
+
+async function remove(client, id) {
+    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contacts = await contactsCollection.deleteOne({_id: id});
+    return contacts;
+}
+
+module.exports = {findContacts, findContact, postContacts, deleteContacts, putContacts}

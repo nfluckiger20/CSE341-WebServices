@@ -6,5 +6,6 @@ router.get('/', contacts.findContacts)
 router.get('/:id', contacts.findContact)
 router.post('/', contacts.postContacts)
 router.put('/:id', contacts.putContacts)
+router.delete('/:id', contacts.deleteContacts)
 
 module.exports = router;

@@ -26,3 +26,6 @@ Content-Type: application/json
     "favoriteColor": "Green",
     "birthday": "12/12/20"
 }
+
+###
+DELETE http://localhost:8000/651605ac08db830e25b05b03 HTTP/1.1
