@@ -1,10 +1,10 @@
 const {MongoClient} = require('mongodb');
+const ObjectID = require('mongodb'). ObjectId;
 
 
-const main = async (req, res) => {
+const findContacts = async (req, res) => {
     const url = process.env.MONGODB; // Replace with your MongoDB URL
     const client = new MongoClient(url);
-    console.log(res)
 
     try {
         await client.connect();
@@ -20,13 +20,36 @@ const main = async (req, res) => {
     }
 };
 
-main().catch(console.error);
-
 async function getContacts(client) {
     const contactsCollection = client.db('Contacts').collection('Contacts');
     const contacts = await contactsCollection.find().toArray();
     return contacts;
 }
 
+const findContact = async (req, res) => {
+    const id = new ObjectId(req.params.id) 
+    const url = process.env.MONGODB; 
+    const client = new MongoClient(url);
 
-module.exports = {main}
+    try {
+        await client.connect();
+        const contacts = await getContact(client);
+        res.json(contacts);
+
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Internal Server Error' });
+
+    } finally {
+        await client.close();
+    }
+};
+
+async function getContact(client) {
+    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contacts = await contactsCollection.find({_id: id}).toArray();
+    return contacts;
+}
+
+
+module.exports = {findContacts}
