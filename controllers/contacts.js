@@ -1,5 +1,5 @@
 const {MongoClient} = require('mongodb');
-const ObjectID = require('mongodb'). ObjectId;
+const ObjectId = require('mongodb'). ObjectId;
 
 
 const findContacts = async (req, res) => {
@@ -33,7 +33,7 @@ const findContact = async (req, res) => {
 
     try {
         await client.connect();
-        const contacts = await getContact(client);
+        const contacts = await getContact(client, id);
         res.json(contacts);
 
     } catch (e) {
@@ -45,11 +45,11 @@ const findContact = async (req, res) => {
     }
 };
 
-async function getContact(client) {
+async function getContact(client, id) {
     const contactsCollection = client.db('Contacts').collection('Contacts');
     const contacts = await contactsCollection.find({_id: id}).toArray();
     return contacts;
 }
 
 
-module.exports = {findContacts}
+module.exports = {findContacts, findContact}
