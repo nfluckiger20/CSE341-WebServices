@@ -27,7 +27,7 @@ async function getContacts(client) {
 }
 
 const findContact = async (req, res) => {
-    const id = new ObjectId(req.params.id) 
+    const id = new ObjectId(req.params.id); 
     const url = process.env.MONGODB; 
     const client = new MongoClient(url);
 

@@ -5,7 +5,10 @@ const dotenv = require("dotenv");
 dotenv.config()
 
 const port =(process.env.PORT) || 8000;
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyparser.json());
 app.use("/", require("./routes"));
 
