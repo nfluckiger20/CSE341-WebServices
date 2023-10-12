@@ -8,4 +8,7 @@ router.post('/', contacts.postContacts)
 router.put('/:id', contacts.putContacts)
 router.delete('/:id', contacts.deleteContacts)
 
+routes.use('/inventory', /*requiresAuth(),*/ require('./inventory'));
+routes.use('/location', /*requiresAuth(),*/ require('./location'));
+
 module.exports = router;
