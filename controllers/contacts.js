@@ -21,7 +21,7 @@ const findContacts = async (req, res) => {
 };
 
 async function getContacts(client) {
-    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contactsCollection = client.db('UnderArmour').collection('Inventory');
     const contacts = await contactsCollection.find().toArray();
     return contacts;
 }
@@ -46,7 +46,7 @@ const findContact = async (req, res) => {
 };
 
 async function getContact(client, id) {
-    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contactsCollection = client.db('UnderArmour').collection('Inventory');
     const contacts = await contactsCollection.find({_id: id}).toArray();
     return contacts;
 }
@@ -77,7 +77,7 @@ const postContacts = async (req, res) => {
 };
 
 async function post(client, body) {
-    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contactsCollection = client.db('UnderArmour').collection('Inventory');
     const contacts = await contactsCollection.insertOne(body);
     return contacts;
 }
@@ -109,7 +109,7 @@ const putContacts = async (req, res) => {
 };
 
 async function put(client, body, id) {
-    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contactsCollection = client.db('UnderArmour').collection('Inventory');
     const contacts = await contactsCollection.replaceOne({_id: id},body);
     return contacts;
 }
@@ -134,7 +134,7 @@ const deleteContacts = async (req, res) => {
 };
 
 async function remove(client, id) {
-    const contactsCollection = client.db('Contacts').collection('Contacts');
+    const contactsCollection = client.db('UnderArmour').collection('Inventory');
     const contacts = await contactsCollection.deleteOne({_id: id});
     return contacts;
 }
