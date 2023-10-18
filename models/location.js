@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
     const locationSchema = mongoose.Schema({
-      username: {
+      locate: {
         type: String
       },
       password: {
@@ -24,7 +24,7 @@ module.exports = (mongoose) => {
       profileIsPublic: {
         type: Boolean
       },
-      theme_name: {
+      inventory_name: {
         type: String
       },
       profile: {

@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8080;
 const app = express();
+const dotenv = require(('dotenv'));
+dotenv.config();
 
 app
   .use(bodyParser.json())
@@ -13,8 +15,7 @@ app
   .use('/', require('./routes'));
 
 const db = require('./models');
-db.mongoose
-  .connect(db.url, {
+db.mongoose.connect(db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

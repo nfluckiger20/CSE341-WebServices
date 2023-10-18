@@ -1,3 +1,5 @@
+// cd Week1CSE341 to confirm correct repository 
+
 const db = require('../models');
 const Inventory = db.Inventory;
 

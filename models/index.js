@@ -1,12 +1,13 @@
-const dbConfig = require('../config/db.config.js');
+const dbConfig = require('../');
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const db = {};
 db.mongoose = mongoose;
-db.url = dbConfig.url;
-db.theme = require('./inventory.js')(mongoose);
-db.user = require('./location.js')(mongoose);
+db.url = process.env.MONGODB;
+console.log(process.env.MONGODB);
+db.inventory = require('./inventory.js')(mongoose);
+db.location = require('./location.js')(mongoose);
 
 module.exports = db;

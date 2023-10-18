@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 
 
   const locate = new locate(req.body);
-  user
+  locate
     .save()
     .then((data) => {
       console.log(data);
