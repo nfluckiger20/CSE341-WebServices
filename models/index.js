@@ -6,7 +6,6 @@ mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.url = process.env.MONGODB;
-console.log(process.env.MONGODB);
 db.inventory = require('./inventory.js')(mongoose);
 db.location = require('./location.js')(mongoose);
 

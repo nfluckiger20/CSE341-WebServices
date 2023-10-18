@@ -1,5 +1,5 @@
 const db = require('../models');
-const locate = db.Location;
+const locate = db.location;
 
 exports.create = (req, res) => {
   // Validate request
@@ -25,6 +25,7 @@ exports.create = (req, res) => {
 };
 
 exports.getAll = (req, res) => {
+  console.log(locate);
     locate.find({})
     .then((data) => {
       res.send(data);
