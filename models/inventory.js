@@ -1,7 +1,31 @@
+// module.exports = (mongoose) => {
+//     const Inventory = mongoose.model(
+//       'inventory',
+//       mongoose.Schema({
+//         inventoryName: {
+//           type: String
+//         },
+//         fontSize: {
+//           type: Number
+//         },
+//         fontFamily: {
+//           type: String
+//         },
+//         inspiration: {
+//           type: String
+//         },
+//         colors: {
+//           type: [String]
+//         }
+//       })
+//     );
+  
+//     return Inventory;
+//   };
+
 module.exports = (mongoose) => {
-    const Inventory = mongoose.model(
-      'inventory',
-      mongoose.Schema({
+  const inventorySchema = mongoose.Schema({
+
         inventoryName: {
           type: String
         },
@@ -18,7 +42,6 @@ module.exports = (mongoose) => {
           type: [String]
         }
       })
-    );
-  
-    return Inventory;
-  };
+    
+  return mongoose.model('inventory', inventorySchema);
+};
