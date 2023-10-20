@@ -4,7 +4,7 @@ const locate = db.location;
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.location || !req.body.password) {
-    res.status(400).send({ message: 'Content can not be empty!' });
+    res.status(400).send({ message: 'Request failed. Confirm content is not empty!' });
     return;
   }
 
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the user.'
+        message: err.message || 'Failed to locate.'
       });
     });
 };
@@ -32,7 +32,7 @@ exports.getAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving users.'
+        message: err.message || 'Error occurred when retrieving location.'
       });
     });
 };
@@ -45,7 +45,33 @@ exports.getLocation = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving users.'
+        message: err.message || 'Error occurred when retrieving loaction.'
+      });
+    });
+};
+
+exports.deleteLocation = (req, res) => {
+  console.log(locate);
+    locate.find({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Failed to delete.'
+      });
+    });
+};
+
+exports.putLocation = (req, res) => {
+  console.log(locate);
+    locate.find({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Put request failed.'
       });
     });
 };

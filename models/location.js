@@ -27,21 +27,21 @@ module.exports = (mongoose) => {
       inventory_name: {
         type: String
       },
-      profile: {
-        experience: {
+      Locations: {
+        USA: {
+          States: [mongoose.SchemaTypes.Mixed]
+        },
+        Canada: {
+          Provinces: [mongoose.SchemaTypes.Mixed]
+        },
+        USA_outlets: {
           type: [mongoose.SchemaTypes.Mixed]
         },
-        education: {
-          type: [mongoose.SchemaTypes.Mixed]
-        },
-        projects: {
-          type: [mongoose.SchemaTypes.Mixed]
-        },
-        skills: {
+        Canada_outlets: {
           type: [String]
         },
-        references: {
-          type: [mongoose.SchemaTypes.Mixed]
+        Additional: {
+          None: [mongoose.SchemaTypes.Mixed]
         }
       }
     });
