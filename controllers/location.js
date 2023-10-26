@@ -74,7 +74,7 @@ exports.putLocation = (req, res) => {
     North_America: req.body.North_America,
   }
   console.log(locate);
-    locate.replaceOne({_id: id}, payload)
+    locate.updateOne({_id: id}, payload)
     .then((data) => {
       res.send(data);
     })

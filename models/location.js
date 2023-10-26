@@ -1,30 +1,18 @@
 module.exports = (mongoose) => {
     const locationSchema = mongoose.Schema({
-      locate: {
+      additional: {
         type: String
       },
-      password: {
+      Asia_Pacific: {
         type: String
       },
-      displayName: {
+      EMEA: {
         type: String
       },
-      email: {
+      Latin_America: {
         type: String
       },
-      phoneNumber: {
-        type: String
-      },
-      currentLocation: {
-        type: String
-      },
-      openToNewOpportunities: {
-        type: Boolean
-      },
-      profileIsPublic: {
-        type: Boolean
-      },
-      inventory_name: {
+      North_America: {
         type: String
       },
     });
