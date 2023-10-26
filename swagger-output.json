@@ -11,6 +11,26 @@
     "http"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/profile": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
@@ -44,8 +64,34 @@
           }
         }
       },
-      "put": {
+      "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "additional": {
+                  "example": "any"
+                },
+                "Asia_Pacific": {
+                  "example": "any"
+                },
+                "EMEA": {
+                  "example": "any"
+                },
+                "Latin_America": {
+                  "example": "any"
+                },
+                "North_America": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -56,15 +102,58 @@
         }
       }
     },
-    "/location/{username}": {
+    "/location/{id}": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "additional": {
+                  "example": "any"
+                },
+                "Asia_Pacific": {
+                  "example": "any"
+                },
+                "EMEA": {
+                  "example": "any"
+                },
+                "Latin_America": {
+                  "example": "any"
+                },
+                "North_America": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {

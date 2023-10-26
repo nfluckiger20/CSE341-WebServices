@@ -1,5 +1,6 @@
 const db = require('../models');
 const locate = db.location;
+const ObjectId = require('mongodb').ObjectId;
 
 exports.create = (req, res) => {
   // Validate request
@@ -38,14 +39,14 @@ exports.getAll = (req, res) => {
 };
 
 exports.getLocation = (req, res) => {
-  const location = req.params.location;
-  locate.find({ location: location })
+  const id = new ObjectId(req.params.id);
+  locate.find({ _id: id })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Error occurred when retrieving loaction.'
+        message: err.message || 'Error occurred when retrieving location.'
       });
     });
 };
@@ -64,8 +65,16 @@ exports.deleteLocation = (req, res) => {
 };
 
 exports.putLocation = (req, res) => {
+  const id = new ObjectId(req.params.id);
+  const payload = {
+    Additional: req.body.additional,
+    Asia_Pacific: req.body.Asia_Pacific,
+    EMEA: req.body.EMEA,
+    Latin_America: req.body.Latin_America,
+    North_America: req.body.North_America,
+  }
   console.log(locate);
-    locate.find({})
+    locate.replaceOne({_id: id}, payload)
     .then((data) => {
       res.send(data);
     })
