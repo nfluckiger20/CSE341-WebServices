@@ -52,8 +52,9 @@ exports.getLocation = (req, res) => {
 };
 
 exports.deleteLocation = (req, res) => {
+  const id = new ObjectId(req.params.id);
   console.log(locate);
-    locate.find({})
+    locate.find({_id: id})
     .then((data) => {
       res.send(data);
     })
@@ -81,6 +82,26 @@ exports.putLocation = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message || 'Put request failed.'
+      });
+    });
+};
+
+exports.postLocation = (req, res) => {
+  const payload = {
+    Additional: req.body.additional,
+    Asia_Pacific: req.body.Asia_Pacific,
+    EMEA: req.body.EMEA,
+    Latin_America: req.body.Latin_America,
+    North_America: req.body.North_America,
+  }
+  console.log(locate);
+    locate.insertOne(payload)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Post request failed.'
       });
     });
 };

@@ -29,16 +29,16 @@ module.exports = (mongoose) => {
         inventoryName: {
           type: String
         },
-        fontSize: {
+        inventoryType: {
           type: Number
         },
-        fontFamily: {
+        inventoryCount: {
           type: String
         },
-        inspiration: {
+        inventoryColor: {
           type: String
         },
-        colors: {
+        inventoryLocation: {
           type: [String]
         }
       })

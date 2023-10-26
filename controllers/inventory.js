@@ -32,3 +32,58 @@ exports.getInventoryId = (req, res) => {
       });
     });
 };
+
+exports.deleteInventory = (req, res) => {
+  const id = new ObjectId(req.params.id);
+  console.log(Inventory);
+  Inventory.find({_id: id})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Failed to delete.'
+      });
+    });
+};
+
+exports.putInventory = (req, res) => {
+  const id = new ObjectId(req.params.id);
+  const payload = {
+    inventoryName: req.body.inventoryName,
+    inventoryType: req.body.inventoryType,
+    inventoryCount: req.body.inventoryCount,
+    inventoryColor: req.body.inventoryColor,
+    inventoryLocation: req.body.inventoryLocation,
+  }
+  console.log(Inventory);
+  Inventory.updateOne({_id: id}, payload)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Put request failed.'
+      });
+    });
+};
+
+exports.postInventory = (req, res) => {
+  const payload = {
+    Additional: req.body.additional,
+    Asia_Pacific: req.body.Asia_Pacific,
+    EMEA: req.body.EMEA,
+    Latin_America: req.body.Latin_America,
+    North_America: req.body.North_America,
+  }
+  console.log(Inventory);
+  Inventory.insertOne(payload)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Post request failed.'
+      });
+    });
+};
