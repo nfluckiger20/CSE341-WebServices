@@ -70,14 +70,14 @@ exports.putInventory = (req, res) => {
 
 exports.postInventory = (req, res) => {
   const payload = {
-    Additional: req.body.additional,
-    Asia_Pacific: req.body.Asia_Pacific,
-    EMEA: req.body.EMEA,
-    Latin_America: req.body.Latin_America,
-    North_America: req.body.North_America,
+    inventoryName: req.body.inventoryName,
+    inventoryType: req.body.inventoryType,
+    inventoryCount: req.body.inventoryCount,
+    inventoryColor: req.body.inventoryColor,
+    inventoryLocation: req.body.inventoryLocation,
   }
   console.log(Inventory);
-  Inventory.insertOne(payload)
+  Inventory.create(payload)
     .then((data) => {
       res.send(data);
     })

@@ -95,7 +95,7 @@ exports.postLocation = (req, res) => {
     North_America: req.body.North_America,
   }
   console.log(locate);
-    locate.insertOne(payload)
+    locate.create(payload)
     .then((data) => {
       res.send(data);
     })

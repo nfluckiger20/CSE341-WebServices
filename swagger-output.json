@@ -198,19 +198,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "additional": {
+                "inventoryName": {
                   "example": "any"
                 },
-                "Asia_Pacific": {
+                "inventoryType": {
                   "example": "any"
                 },
-                "EMEA": {
+                "inventoryCount": {
                   "example": "any"
                 },
-                "Latin_America": {
+                "inventoryColor": {
                   "example": "any"
                 },
-                "North_America": {
+                "inventoryLocation": {
                   "example": "any"
                 }
               }

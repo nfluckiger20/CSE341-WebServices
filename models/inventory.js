@@ -30,7 +30,7 @@ module.exports = (mongoose) => {
           type: String
         },
         inventoryType: {
-          type: Number
+          type: String
         },
         inventoryCount: {
           type: String
