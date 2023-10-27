@@ -55,6 +55,8 @@ exports.putInventory = (req, res) => {
     inventoryCount: req.body.inventoryCount,
     inventoryColor: req.body.inventoryColor,
     inventoryLocation: req.body.inventoryLocation,
+    inventorySize: req.body. inventorySize,
+    inventoryRating: req.body.inventoryRating,
   }
   console.log(Inventory);
   Inventory.updateOne({_id: id}, payload)
@@ -75,6 +77,8 @@ exports.postInventory = (req, res) => {
     inventoryCount: req.body.inventoryCount,
     inventoryColor: req.body.inventoryColor,
     inventoryLocation: req.body.inventoryLocation,
+    inventorySize: req.body. inventorySize,
+    inventoryRating: req.body.inventoryRating,
   }
   console.log(Inventory);
   Inventory.create(payload)
@@ -87,3 +91,4 @@ exports.postInventory = (req, res) => {
       });
     });
 };
+

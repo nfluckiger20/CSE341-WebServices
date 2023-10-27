@@ -40,6 +40,12 @@ module.exports = (mongoose) => {
         },
         inventoryLocation: {
           type: [String]
+        },
+        inventorySize: {
+          type: [String]
+        },
+        inventoryRating: {
+          type: [String]
         }
       })
     

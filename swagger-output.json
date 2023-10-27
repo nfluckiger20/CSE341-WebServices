@@ -212,6 +212,12 @@
                 },
                 "inventoryLocation": {
                   "example": "any"
+                },
+                "inventorySize": {
+                  "example": "any"
+                },
+                "inventoryRating": {
+                  "example": "any"
                 }
               }
             }
@@ -278,6 +284,12 @@
                   "example": "any"
                 },
                 "inventoryLocation": {
+                  "example": "any"
+                },
+                "inventorySize": {
+                  "example": "any"
+                },
+                "inventoryRating": {
                   "example": "any"
                 }
               }
